@@ -106,6 +106,9 @@ namespace CKB
         public Vector2 Focus { get; set; }
         public float MoveSpeed { get; set; }
 
+        public float ChangeInX { get; set; }
+        public float ChangeInY { get; set; }
+
         #endregion
 
         /// <summary>
@@ -118,6 +121,8 @@ namespace CKB
 
             ScreenCenter = new Vector2(_viewportWidth / 2, _viewportHeight / 2);
             Scale = 1;
+            _position.X = 400;
+            _position.Y = 240;
             //MoveSpeed = 1.25f; <------ get from baseCharacter
 
             base.Initialize();
@@ -139,7 +144,9 @@ namespace CKB
             var delta = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             _position.X += (Focus.X - Position.X) * MoveSpeed * delta;
+            ChangeInX = (Focus.X - Position.X) * MoveSpeed * delta;
             _position.Y += (Focus.Y - Position.Y) * MoveSpeed * delta;
+            ChangeInY = (Focus.Y - Position.Y) * MoveSpeed * delta;
 
             Rotation += 0f;
             Scale = 1f;

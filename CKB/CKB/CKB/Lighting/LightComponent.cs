@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -17,6 +18,7 @@ namespace CKB
     {
         Lightmap map;
         SpriteBatch spriteBatch;
+        List<Light> lights = new List<Light>();
 
         public LightComponent(Game game)
             : base(game)
@@ -25,7 +27,14 @@ namespace CKB
 
         public override void Initialize()
         {
-            map = new Lightmap(5, 160, 96);
+            Random rand = new Random();
+            map = new Lightmap(15, 54, 32);
+            lights.Add(new Light(Vector2.Zero, 1f));
+            lights.Add(new Light(new Vector2(400, 240), 1f));
+            lights.Add(new Light(new Vector2((float)(rand.NextDouble() * 800), (float)(rand.NextDouble() * 480)), .75f));
+            //lights.Add(new Light(new Vector2((float)(rand.NextDouble() * 800), (float)(rand.NextDouble() * 480)), 1f));
+            //lights.Add(new Light(new Vector2((float)(rand.NextDouble() * 800), (float)(rand.NextDouble() * 480)), .5f));
+            //lights.Add(new Light(new Vector2((float)(rand.NextDouble() * 800), (float)(rand.NextDouble() * 480)), .5f));
             base.Initialize();
         }
 
@@ -35,10 +44,40 @@ namespace CKB
             base.LoadContent();
         }
 
+        public virtual void LoadContent(int x)
+        {
+            spriteBatch = new SpriteBatch(Game1.GameDevice);
+        }
+
+        public virtual void Update()
+        {
+            GameTime gameTime = new GameTime();
+            while (true)
+            {
+                map.update(gameTime, lights);
+
+                Thread.Sleep(16);
+            }
+        }
+
         public override void Update(GameTime gameTime)
         {
-            map.update(gameTime);
+            map.update(gameTime, lights);
             base.Update(gameTime);
+        }
+
+        public virtual void Draw()
+        {
+            while (true)
+            {
+                spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied);
+
+                map.draw(spriteBatch);
+
+                spriteBatch.End();
+
+                Thread.Sleep(16);
+            }
         }
 
         public override void Draw(GameTime gameTime)
@@ -50,7 +89,7 @@ namespace CKB
                 AlphaBlendFunction = BlendFunction.Add,
                 ColorSourceBlend = Blend.DestinationColor,
                 ColorDestinationBlend = Blend.Zero,
-                //ColorBlendFunction = BlendFunction.Add
+                ColorBlendFunction = BlendFunction.Add
             };
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied);
 

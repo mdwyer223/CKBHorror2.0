@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -68,7 +69,6 @@ namespace CKB
             Content.RootDirectory = "Content";
             otherContent = new ContentManager(Content.ServiceProvider);
             otherContent.RootDirectory = "Content";
-            
         }
 
         protected override void Initialize()
@@ -76,6 +76,7 @@ namespace CKB
             otherDevice = this.GraphicsDevice;
             camera = new Camera2D(this);
             Components.Add(camera);
+            lights = new LightComponent(this);
             lights = new LightComponent(this);
             Components.Add(lights);
             f = new Floor1();
@@ -102,16 +103,16 @@ namespace CKB
         protected override void Update(GameTime gameTime)
         {
             Input.Update();
-            map.update(gameTime);
+            //map.update(gameTime);
             tileTest1.update(gameTime);
             tileTest2.update(gameTime);
             tileTest3.update(gameTime);
             tileTest4.update(gameTime);
 
             if (Input.rightDown())
-                testPos.X += 1;
+                testPos.X += 3;
             if (Input.leftDown())
-                testPos.X -= 1;
+                testPos.X -= 3;
             if (Input.upDown())
             {
                 if (!lookingUp)
@@ -128,7 +129,7 @@ namespace CKB
             }
 
             Game1.Camera.Focus = testPos;
-            Game1.Camera.MoveSpeed = 1;
+            Game1.Camera.MoveSpeed = 3;
 
             f.update(gameTime);
 
@@ -137,7 +138,7 @@ namespace CKB
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black);
+            GraphicsDevice.Clear(Color.Blue);
 
             RasterizerState rs = new RasterizerState();
             rs.CullMode = CullMode.None;
@@ -146,7 +147,7 @@ namespace CKB
                 DepthStencilState.Default, rs, null, Game1.Camera.Transform);
             f.draw(spriteBatch);
 
-            spriteBatch.Draw(Image.Particle, new Rectangle((int)testPos.X, (int)testPos.Y, 20, 20), Color.Blue);
+            spriteBatch.Draw(Image.Particle, new Rectangle((int)testPos.X, (int)testPos.Y, 20, 20), Color.Green);
             //tileTest1.draw(spriteBatch);
             //tileTest2.draw(spriteBatch);
             //tileTest3.draw(spriteBatch);
