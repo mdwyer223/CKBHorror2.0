@@ -49,7 +49,8 @@ namespace CKB
                         l.update();
                         if (t.LightPosition.X != -1f)
                         {
-                            if (measureDis(t.Position, l.Position) < measureDis(t.Position, t.LightPosition) || t.brighter(l))
+                            //if (measureDis(t.Position, l.Position) < measureDis(t.Position, t.LightPosition) || t.brighter(l))
+                            if(t.brighter(l))
                             {
                                 t.setTarget(l);
                             }

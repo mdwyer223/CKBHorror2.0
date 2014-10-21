@@ -31,7 +31,7 @@ namespace CKB
             map = new Lightmap(15, 54, 32);
             lights.Add(new Light(Vector2.Zero, 1f));
             lights.Add(new Light(new Vector2(400, 240), 1f));
-            lights.Add(new Light(new Vector2((float)(rand.NextDouble() * 800), (float)(rand.NextDouble() * 480)), .75f));
+            lights.Add(new Light(new Vector2((float)(rand.Next(-1600, 1600)), (float)(rand.NextDouble() * 480)), .75f));
             //lights.Add(new Light(new Vector2((float)(rand.NextDouble() * 800), (float)(rand.NextDouble() * 480)), 1f));
             //lights.Add(new Light(new Vector2((float)(rand.NextDouble() * 800), (float)(rand.NextDouble() * 480)), .5f));
             //lights.Add(new Light(new Vector2((float)(rand.NextDouble() * 800), (float)(rand.NextDouble() * 480)), .5f));
