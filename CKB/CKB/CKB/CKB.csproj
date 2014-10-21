@@ -114,6 +114,8 @@
     <Compile Include="Admin\Structures.cs" />
     <Compile Include="Base Classes\AdvancedSprite.cs" />
     <Compile Include="Base Classes\AnimatedSprite.cs" />
+    <Compile Include="Base Classes\Animation2\Animation.cs" />
+    <Compile Include="Base Classes\Animation2\Frame.cs" />
     <Compile Include="Base Classes\BaseSprite.cs" />
     <Compile Include="CKB\Camera.cs" />
     <Compile Include="Lighting\LightComponent.cs" />
