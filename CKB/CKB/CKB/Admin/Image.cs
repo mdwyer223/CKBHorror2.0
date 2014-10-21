@@ -13,8 +13,17 @@ namespace CKB
     {
         public static Texture2D Particle
         {
-            get { return Game1.GameContent.Load<Texture2D>("Particle"); }
+            get { return Game1.GameContent.Load<Texture2D>("Testing/Particle"); }
         }
+
+        public class Character
+        {
+            public static Texture2D Walk
+            {
+                get { return Game1.GameContent.Load<Texture2D>("Testing/PomruWalkCycle"); }
+            }
+        }
+
 
         // other images...
     }
