@@ -34,8 +34,15 @@ namespace CKB
             get { return new Vector2(Rec.X, Rec.Y); }
             set
             {
-                rec.X = (int)(value.X + .5);
-                rec.Y = (int)(value.Y + .5);
+                if (value.X > 0)                
+                    rec.X = (int)(value.X + .5);                
+                else
+                    rec.X = (int)(value.X - .5);
+
+                if (value.Y > 0)
+                    rec.Y = (int)(value.Y + .5);
+                else
+                    rec.Y = (int)(value.Y - .5);
             }
         }
 
@@ -50,7 +57,13 @@ namespace CKB
             protected set;
         }
 
-        public int Speed
+        public int Speed//TODO: the magnitude of the velo
+        {
+            get;
+            private set;
+        }
+
+        public float ScaleFactor
         {
             get;
             private set;
@@ -59,6 +72,7 @@ namespace CKB
         public BaseSprite(Texture2D texture, float scaleFactor, float secondsToCrossScreen, Vector2 startPos)
         {
             this.texture = texture;
+            this.ScaleFactor = scaleFactor;
             color = Color.White;
             IsVisible = true;
 
@@ -88,7 +102,7 @@ namespace CKB
         }
 
 
-
+        //uses dis formula to get dis between 2 points
         public float measureDis(Vector2 point1, Vector2 point2)
         {
             return (float)Math.Sqrt(Math.Pow(point1.X - point2.X, 2) + Math.Pow(point1.Y - point2.Y, 2));
@@ -96,12 +110,30 @@ namespace CKB
 
         public float measureDis(Vector2 point1)
         {
-            return measureDis(this.Position, point1);
+            return measureDis(this.Center, point1);
         }
 
+        public float measureDis(BaseSprite sprite)
+        {
+            return measureDis(this.Center, sprite.Center);
+        }
+
+        //Checks for collision
         public bool isColliding(Rectangle inRec)
         {
             return this.Rec.Intersects(inRec);
+        }
+
+        public bool isColliding(BaseSprite sprite)
+        {
+            return this.Rec.Intersects(sprite.Rec);
+        }
+
+        public bool isColliding(Vector2 point)
+        {
+            bool inX = Rec.X <= point.X && point.X <= Rec.X + Rec.Width;
+            bool inY = Rec.Y <= point.Y && point.Y <= Rec.Y + Rec.Height;
+            return inX && inY;
         }
     }
 }
