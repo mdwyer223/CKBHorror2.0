@@ -42,33 +42,44 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Particle.png">
+    <Compile Include="Testing\Particle.png">
       <Name>Particle</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="doors.png">
+    <Compile Include="Floor2\doors.png">
       <Name>doors</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="doors3.png">
+    <Compile Include="Floor3\doors3.png">
       <Name>doors3</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="wall.png">
+    <Compile Include="Floor2\wall.png">
       <Name>wall</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="wall3.png">
+    <Compile Include="Floor3\wall3.png">
       <Name>wall3</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Testing\PomruWalkCycle.png">
+      <Name>PomruWalkCycle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Floor1\" />
+    <Folder Include="Floor4\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
