@@ -18,14 +18,16 @@ namespace CKB
         Rectangle drawingRec;
         int width, height;
 
-        public Floor(Texture2D background, Vector2 position, int width, int height)
+        public Floor(Texture2D background, Vector2 position)
             : base()
         {
             this.background = background;
             this.position = position;
-            this.width = width;
-            this.height = height;
-
+            this.height = Game1.View.Height;
+            float aspectRatio = background.Width / background.Height;
+            this.width = (int)(aspectRatio * background.Width);
+            if (width >= 5 * Game1.View.Width)
+                width = 5 * Game1.View.Width;
             drawingRec = new Rectangle((int)position.X, (int)position.Y, width, height);
         }
 

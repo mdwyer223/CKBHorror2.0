@@ -12,7 +12,7 @@ namespace CKB
     public class Room200 : Floor
     {
         public Room200()
-            : base(Image.Particle, Vector2.Zero, 0, 0)
+            : base(Image.Particle, Vector2.Zero)
         {
 
         }

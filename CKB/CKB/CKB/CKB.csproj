@@ -112,11 +112,11 @@
     <Compile Include="Admin\Image.cs" />
     <Compile Include="Admin\Input.cs" />
     <Compile Include="Admin\Structures.cs" />
-    <Compile Include="Base Classes\AdvancedSprite.cs" />
     <Compile Include="Base Classes\AnimatedSprite.cs" />
-    <Compile Include="Base Classes\Animation2\Animation.cs" />
-    <Compile Include="Base Classes\Animation2\Frame.cs" />
+    <Compile Include="Base Classes\Animation\Animation.cs" />
+    <Compile Include="Base Classes\Animation\Frame.cs" />
     <Compile Include="Base Classes\BaseSprite.cs" />
+    <Compile Include="Base Classes\Character.cs" />
     <Compile Include="CKB\Camera.cs" />
     <Compile Include="Lighting\LightComponent.cs" />
     <Compile Include="Lighting\Lightmap.cs" />
@@ -164,7 +164,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Base Classes\Animation\" />
     <Folder Include="Menus\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

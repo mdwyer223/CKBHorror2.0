@@ -29,12 +29,10 @@ namespace CKB
         {
             Random rand = new Random();
             map = new Lightmap(15, 54, 32);
-            lights.Add(new Light(Vector2.Zero, 1f));
-            lights.Add(new Light(new Vector2(400, 240), 1f));
-            lights.Add(new Light(new Vector2((float)(rand.Next(-1600, 1600)), (float)(rand.NextDouble() * 480)), .75f));
-            //lights.Add(new Light(new Vector2((float)(rand.NextDouble() * 800), (float)(rand.NextDouble() * 480)), 1f));
-            //lights.Add(new Light(new Vector2((float)(rand.NextDouble() * 800), (float)(rand.NextDouble() * 480)), .5f));
-            //lights.Add(new Light(new Vector2((float)(rand.NextDouble() * 800), (float)(rand.NextDouble() * 480)), .5f));
+            //for (int i = 0; i < 8; i++)
+            //{
+            //    lights.Add(new Light(new Vector2(i * 800, 240), .8f));
+            //}
             base.Initialize();
         }
 

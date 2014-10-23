@@ -16,10 +16,13 @@ namespace CKB
         KeyboardState keys, oldkeys;
         Animation aniWalk;
 
-        public Character(Vector2 startPos)
-            : base(Image.Character.Walk, 0.05f, 4, startPos)
+        public Character()
+            : base(Image.Character.Walk, 0.05f, 1, Vector2.Zero)
         {
-            aniWalk = new Animation(Image.Character.Walk, 50, .3f); 
+            aniWalk = new Animation(Image.Character.Walk, 50, .3f);
+            playAnimation(aniWalk);
+
+            this.Position = new Vector2(0, Game1.View.Height - this.Rec.Height - 5);
             Flip = true;
         }
 
@@ -46,10 +49,10 @@ namespace CKB
             }
 
             //Check for Y direction movement
-            if (keys.IsKeyDown(Keys.S) || keys.IsKeyDown(Keys.Down))
-                velocity.Y = this.Speed;
-            if (keys.IsKeyDown(Keys.W) || keys.IsKeyDown(Keys.Up))
-                velocity.Y = -this.Speed;
+            //if (keys.IsKeyDown(Keys.S) || keys.IsKeyDown(Keys.Down))
+            //    velocity.Y = this.Speed;
+            //if (keys.IsKeyDown(Keys.W) || keys.IsKeyDown(Keys.Up))
+            //    velocity.Y = -this.Speed;
 
             oldkeys = keys;
         }

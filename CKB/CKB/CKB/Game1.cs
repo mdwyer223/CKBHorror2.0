@@ -22,8 +22,8 @@ namespace CKB
         SpriteBatch spriteBatch;
 
         static Floor f;
+        Character c;
         Vector2 testPos = new Vector2(400, 240);
-        LightTile tileTest1, tileTest2, tileTest3, tileTest4;
         Lightmap map;
         bool lookingUp = false;
 
@@ -87,12 +87,9 @@ namespace CKB
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            tileTest1 = new LightTile(240, Vector2.Zero);
-            tileTest2 = new LightTile(240, new Vector2(0, 240));
-            tileTest3 = new LightTile(240, new Vector2(240, 0));
-            tileTest4 = new LightTile(240, new Vector2(240, 240));
-
             map = new Lightmap(40, 40, 12);
+
+            c = new Character();
         }
 
         protected override void UnloadContent()
@@ -103,57 +100,29 @@ namespace CKB
         protected override void Update(GameTime gameTime)
         {
             Input.Update();
-            //map.update(gameTime);
-            tileTest1.update(gameTime);
-            tileTest2.update(gameTime);
-            tileTest3.update(gameTime);
-            tileTest4.update(gameTime);
 
-            if (Input.rightDown())
-                testPos.X += 3;
-            if (Input.leftDown())
-                testPos.X -= 3;
-            if (Input.upDown())
-            {
-                if (!lookingUp)
-                {
-                    testPos.Y = testPos.Y -= 45;
-                    lookingUp = true;
-                }
-            }
-            else
-            {
-                if(lookingUp)
-                    testPos.Y += 45;
-                lookingUp = false;
-            }
-
-            Game1.Camera.Focus = testPos;
-            Game1.Camera.MoveSpeed = 3;
+            Game1.Camera.Focus = new Vector2(400, 240);
+            Game1.Camera.MoveSpeed = c.Speed;
 
             f.update(gameTime);
+            c.update(gameTime);
 
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Blue);
+            GraphicsDevice.Clear(Color.Black);
 
             RasterizerState rs = new RasterizerState();
             rs.CullMode = CullMode.None;
 
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.LinearClamp,
                 DepthStencilState.Default, rs, null, Game1.Camera.Transform);
+
             f.draw(spriteBatch);
 
-            spriteBatch.Draw(Image.Particle, new Rectangle((int)testPos.X, (int)testPos.Y, 20, 20), Color.Green);
-            //tileTest1.draw(spriteBatch);
-            //tileTest2.draw(spriteBatch);
-            //tileTest3.draw(spriteBatch);
-            //tileTest4.draw(spriteBatch);
-            //map.draw(spriteBatch);
-            spriteBatch.Draw(Image.Particle, new Rectangle((int)Input.mousePos().X, (int)Input.mousePos().Y, 20, 20), Color.White);
+            c.draw(spriteBatch);
 
             spriteBatch.End();
 
