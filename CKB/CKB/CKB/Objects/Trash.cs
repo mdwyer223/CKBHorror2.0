@@ -10,13 +10,13 @@ using Microsoft.Xna.Framework.Input;
 
 namespace CKB
 {
-    public class Phone : Object
+    public class Trash : Object
     {
-        public Phone(float startPosX)
-            : base(Image.Object.Phone, .033f, 0, Vector2.Zero)
+        public Trash(float startPosX)
+            : base(Image.Object.Trash, .058f, 0, Vector2.Zero)
         {
-            this.Position = new Vector2(startPosX, Game1.View.Height - Game1.View.Height * 0.21f);
-        }       
-        
+            this.Position = new Vector2(startPosX, Game1.View.Height - this.rec.Height);
+        }
+
     }
 }

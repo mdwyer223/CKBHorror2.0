@@ -19,7 +19,7 @@ namespace CKB
         {
         }
 
-        public sealed override void update(GameTime gameTime)
+        public void update(GameTime gameTime, Floor floor)
         {
             base.update(gameTime);
             mouse = Mouse.GetState();
@@ -40,6 +40,9 @@ namespace CKB
             }
             else
                 this.color = Color.White;
+
+            //Check if play near by
+
 
             oldMouse = mouse;
         }

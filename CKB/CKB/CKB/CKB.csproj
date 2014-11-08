@@ -122,6 +122,9 @@
     <Compile Include="Lighting\Lightmap.cs" />
     <Compile Include="Lighting\LightTile.cs" />
     <Compile Include="Objects\Light.cs" />
+    <Compile Include="Objects\Object.cs" />
+    <Compile Include="Objects\Phone.cs" />
+    <Compile Include="Objects\Trash.cs" />
     <Compile Include="Rooms\Floor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />

@@ -12,9 +12,12 @@ namespace CKB
     public class Floor1 : Floor
     {
         public Floor1()
-            : base(Image.Floor1, Vector2.Zero)
+            : base(Image.Floor2.Wall, Vector2.Zero)
         {
             color = Color.White;
+
+            objs.Add(new Phone(400));
+            objs.Add(new Trash(300));
         }
 
         public override void update(GameTime gameTime)

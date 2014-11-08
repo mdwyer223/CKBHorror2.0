@@ -12,7 +12,7 @@ namespace CKB
     public class Floor2 : Floor
     {
         public Floor2()
-            : base(Image.Particle, Vector2.Zero)
+            : base(Image.Floor3.Wall, Vector2.Zero)
         {
             color = Color.Green;
         }

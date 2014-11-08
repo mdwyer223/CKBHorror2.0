@@ -70,7 +70,7 @@ namespace CKB
             //        + (Math.Pow(targetLight.Position.Y - rec.Center.Y, 2)))) / (side * 25)));
             //}
 
-            brightness = (float)(255f * ((Math.Sqrt((Math.Pow((Game1.Camera.Position.X - Game1.Camera.Origin.X) - (float)rec.Center.X, 2))
+            brightness = (float)(255f/100 * ((Math.Sqrt((Math.Pow((Game1.Camera.Position.X - Game1.Camera.Origin.X) - (float)rec.Center.X, 2))
                     + (Math.Pow(Game1.Camera.Focus.Y - rec.Center.Y, 2)))) / (side * 25)));
         }
 

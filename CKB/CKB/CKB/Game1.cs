@@ -22,7 +22,6 @@ namespace CKB
         SpriteBatch spriteBatch;
 
         static Floor f;
-        Character c;
         Vector2 testPos = new Vector2(400, 240);
         Lightmap map;
         bool lookingUp = false;
@@ -88,8 +87,6 @@ namespace CKB
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             map = new Lightmap(40, 40, 12);
-
-            c = new Character();
         }
 
         protected override void UnloadContent()
@@ -102,10 +99,9 @@ namespace CKB
             Input.Update();
 
             Game1.Camera.Focus = new Vector2(400, 240);
-            Game1.Camera.MoveSpeed = c.Speed;
+            Game1.Camera.MoveSpeed = f.charater.Speed;
 
             f.update(gameTime);
-            c.update(gameTime);
 
             base.Update(gameTime);
         }
@@ -121,8 +117,6 @@ namespace CKB
                 DepthStencilState.Default, rs, null, Game1.Camera.Transform);
 
             f.draw(spriteBatch);
-
-            c.draw(spriteBatch);
 
             spriteBatch.End();
 
