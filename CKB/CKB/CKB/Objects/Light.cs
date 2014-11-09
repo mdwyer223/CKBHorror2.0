@@ -19,6 +19,7 @@ namespace CKB
         public Vector2 Position
         {
             get { return position; }
+            set { position = value; }
         }
 
         public bool IsDead
@@ -26,9 +27,22 @@ namespace CKB
             get { return isDead; }
         }
 
+        public bool Distorted
+        {
+            get;
+            set;
+        }
+
+        public bool FollowingPlayer
+        {
+            get;
+            protected set;
+        }
+
         public float BrightnessFactor
         {
             get { return brightnessFactor; }
+            set { brightnessFactor = value; }
         }
 
         public Light(Vector2 position, float brightness)
@@ -40,11 +54,28 @@ namespace CKB
             isDead = false;
         }
 
+        public Light(bool following)
+            : base()
+        {
+            this.FollowingPlayer = true;
+            brightnessFactor = .75f;
+        }
+
         public virtual void update()
         {
-            this.position.X = (this.startPosition.X - Game1.Camera.Position.X);
-            this.position.Y = (this.startPosition.Y - Game1.Camera.Position.Y);
-            //brightnessFactor = (float)(rand.NextDouble() * .5f);
+            if (!FollowingPlayer)
+            {
+                this.position.X = (this.startPosition.X - Game1.Camera.Position.X);
+                this.position.Y = (this.startPosition.Y - Game1.Camera.Position.Y);
+            }
+            else
+            {
+                this.position = new Vector2(Game1.c.Position.X, Game1.c.Position.Y - 50);
+                this.position = new Vector2(position.X - Game1.Camera.Position.X + Game1.Camera.Origin.X,
+                    position.Y);
+            }
+            if(Distorted)
+                brightnessFactor = (float)(rand.NextDouble() *2f);
         }
     }
 }

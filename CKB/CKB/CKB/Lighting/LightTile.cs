@@ -57,6 +57,7 @@ namespace CKB
             rec = new Rectangle(0, 0, (int)sideLength, (int)sideLength);
             this.Position = pos;
             blankTexture = Image.Particle;
+            targetLight = new Light(new Vector2(-800,0), 1f);
         }
 
         public virtual void update(GameTime gameTime) //needs the lightmap as a resource for lightdistance
@@ -64,14 +65,14 @@ namespace CKB
             //brightness = .4f * (float)(255f * ((Math.Sqrt((Math.Pow(Input.mousePos().X - (float)rec.Center.X, 2))
             //   + (Math.Pow(Input.mousePos().Y - rec.Center.Y, 2)))) / (side * 25)));
 
-            //if (targetLight != null)
-            //{
-            //    brightness = targetLight.BrightnessFactor * (float)(255f * ((Math.Sqrt((Math.Pow(targetLight.Position.X - (float)rec.Center.X, 2))
-            //        + (Math.Pow(targetLight.Position.Y - rec.Center.Y, 2)))) / (side * 25)));
-            //}
+            if (targetLight != null)
+            {
+                brightness = targetLight.BrightnessFactor * (float)(255f * ((Math.Sqrt((Math.Pow(targetLight.Position.X - (float)rec.Center.X, 2))
+                    + (Math.Pow(targetLight.Position.Y - rec.Center.Y, 2)))) / (side * 25)));
+            }
 
-            brightness = (float)(255f * ((Math.Sqrt((Math.Pow((Game1.Camera.Position.X - Game1.Camera.Origin.X) - (float)rec.Center.X, 2))
-                    + (Math.Pow(Game1.Camera.Focus.Y - rec.Center.Y, 2)))) / (side * 25)));
+            //brightness = (float)(255f * ((Math.Sqrt((Math.Pow((Game1.Camera.Position.X - Game1.Camera.Origin.X) - (float)rec.Center.X, 2))
+            //      + (Math.Pow(Game1.Camera.Focus.Y - rec.Center.Y, 2)))) / (side * 25)));
         }
 
         public virtual void draw(SpriteBatch spriteBatch)

@@ -22,7 +22,7 @@ namespace CKB
         SpriteBatch spriteBatch;
 
         static Floor f;
-        Character c;
+        public static Character c;
         Vector2 testPos = new Vector2(400, 240);
         Lightmap map;
         bool lookingUp = false;
@@ -77,7 +77,6 @@ namespace CKB
             camera = new Camera2D(this);
             Components.Add(camera);
             lights = new LightComponent(this);
-            lights = new LightComponent(this);
             Components.Add(lights);
             f = new Floor1();
             base.Initialize();
@@ -101,7 +100,7 @@ namespace CKB
         {
             Input.Update();
 
-            Game1.Camera.Focus = new Vector2(400, 240);
+            Game1.Camera.Focus = c.Position;
             Game1.Camera.MoveSpeed = c.Speed;
 
             f.update(gameTime);

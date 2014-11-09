@@ -28,11 +28,12 @@ namespace CKB
         public override void Initialize()
         {
             Random rand = new Random();
-            map = new Lightmap(15, 54, 32);
+            map = new Lightmap(10, 80, 48);//15,54,32
             //for (int i = 0; i < 8; i++)
             //{
             //    lights.Add(new Light(new Vector2(i * 800, 240), .8f));
             //}
+            lights.Add(new Light(true));
             base.Initialize();
         }
 
@@ -50,12 +51,7 @@ namespace CKB
         public virtual void Update()
         {
             GameTime gameTime = new GameTime();
-            while (true)
-            {
-                map.update(gameTime, lights);
-
-                Thread.Sleep(16);
-            }
+            map.update(gameTime, lights);
         }
 
         public override void Update(GameTime gameTime)
