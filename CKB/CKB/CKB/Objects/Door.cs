@@ -12,6 +12,15 @@ namespace CKB
 {
     public  class Door : Object
     {
+
+        private int height;
+        private float startPos;
+
+        private int floorIndex;
+
+        float time;
+
+
         private bool open;
         public bool Open
         {
@@ -64,13 +73,6 @@ namespace CKB
                 
             }
         }
-                
-        private int height;
-        private float startPos;
-
-        private int floorIndex;
-
-        float time;
 
         public Door(float startPosX, int floorIndex)
             : base(Image.Floor2.DoorOpen, .33f, 0, Vector2.Zero)

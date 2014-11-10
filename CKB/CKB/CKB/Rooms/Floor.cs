@@ -11,6 +11,15 @@ namespace CKB
 {
     public class Floor
     {
+        //list of objects
+        protected Color color;
+        Texture2D background;
+        Vector2 position;
+
+        int width, height;
+
+        protected List<Object> objs;
+
         public Rectangle DrawingRec
         {
             get;
@@ -36,15 +45,6 @@ namespace CKB
             get;
             private set;
         }
-
-        //list of objects
-        protected Color color;
-        Texture2D background;
-        Vector2 position;
-        
-        int width, height;
-
-        protected List<Object> objs;
 
         public Floor(Texture2D background, Vector2 position)
             : base()
@@ -89,6 +89,11 @@ namespace CKB
 
             Character.draw(spriteBatch);
             //MessBox.draw(spriteBatch);
+        }
+
+        public void changePlayer(Character character)
+        {
+            this.Character = character;
         }
     }
 }

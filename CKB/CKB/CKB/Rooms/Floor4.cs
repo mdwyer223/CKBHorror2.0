@@ -9,25 +9,22 @@ using Microsoft.Xna.Framework.Content;
 
 namespace CKB
 {
-    public class Floor2 : Floor
+    public class Floor4 : Floor
     {
-        public Floor2()
-            : base(Image.Floor2.Wall, Vector2.Zero)
+        public Floor4()
+            : base(Image.Floor4.Wall, Vector2.Zero)
         {
             objs.Add(new Elevator(130));
 
-            objs.Add(new Phone(400));
             objs.Add(new Trash(300));
-            objs.Add(new Door(700, 2));
 
-            objs.Add(new StairDoor(1200, 2));
-            
+            objs.Add(new StairDoor(1200, 4));
         }
 
         public override void update(GameTime gameTime)
         {
             if (Input.escapePressed())
-                Game1.changeFloor(new Floor3(), Character);
+                Game1.changeFloor(new Floor1(), Character);
             base.update(gameTime);
         }
     }

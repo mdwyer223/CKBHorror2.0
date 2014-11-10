@@ -12,6 +12,9 @@ namespace CKB
 {
     public class StairDoor : Object
     {
+        bool listen;
+        int floorIndex;
+
         public StairDoor(float startPosX, int floorIndex)
             : base(Image.Floor2.DoorStair, .205f, 0, Vector2.Zero)
         {
@@ -35,15 +38,57 @@ namespace CKB
                     break;
             }
 
+            this.floorIndex = floorIndex;
             this.Position = new Vector2(startPosX, Game1.View.Height - this.rec.Height);
+            listen = false;
         }
 
         protected override void hasFocus(Floor floor)
         {
-            if (Input.actionBarPressed())
-            {
+            string response = "";
+            List<string> options = new List<string>();
+            options.Add("Up");
+            options.Add("Down");
 
+            if (!listen && Input.actionBarPressed())
+            {
+                Game1.passMessage("Up or down?", options);
+                listen = true;
             }
+            
+            //Read answer
+            if (!Game1.mBox.Visible && listen)
+            {
+                response = options[Game1.mBox.OptionIndex];
+                listen = false;
+
+                //react to answer
+                if (response == "Up")
+                    floorIndex++;
+                else if (response == "Down")
+                    floorIndex--;
+
+                switch (floorIndex)
+                {
+                    case 1:
+                        Game1.changeFloor(new Floor1(), floor.Character);
+                        break;
+
+                    case 2:
+                        Game1.changeFloor(new Floor2(), floor.Character);
+                        break;
+
+                    case 3:
+                        Game1.changeFloor(new Floor3(), floor.Character);
+                        break;
+
+                    case 4:
+                        Game1.changeFloor(new Floor4(), floor.Character);
+                        break;
+                }
+                Game1.hideMessage();
+            }            
+
         }
 
     }

@@ -74,7 +74,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Floor1\" />
-    <Folder Include="Floor4\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Character\cWalkNew1.png">
@@ -157,6 +156,13 @@
       <Name>Normal</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Floor4\wall4.png">
+      <Name>wall4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

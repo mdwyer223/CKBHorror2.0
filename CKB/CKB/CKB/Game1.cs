@@ -22,7 +22,11 @@ namespace CKB
         SpriteBatch spriteBatch;
 
         static Floor f;
-        static MessageBox mBox;
+        public static MessageBox mBox
+        {
+            get;
+            protected set;
+        }
 
         Vector2 testPos = new Vector2(400, 240);
         Lightmap map;
@@ -85,7 +89,8 @@ namespace CKB
             lights = new LightComponent(this);
             Components.Add(lights);
             f = new Floor1();
-            Game1.passMessage("Hey you");
+
+            mBox = new MessageBox();
             base.Initialize();
         }
 
@@ -108,8 +113,8 @@ namespace CKB
             Game1.Camera.Focus = f.Character.Position;
             Game1.Camera.MoveSpeed = f.Character.Speed;
 
-            f.update(gameTime);
             mBox.update(gameTime);
+            f.update(gameTime);            
 
             base.Update(gameTime);
         }
@@ -131,21 +136,48 @@ namespace CKB
             spriteBatch.Begin();
 
             mBox.draw(spriteBatch);
-
+            
             spriteBatch.End();
             base.Draw(gameTime);
 
+            spriteBatch.Begin();
+
+            int floorIndex = 0;
+            if (f.GetType() == typeof(Floor1))
+                floorIndex = 1;
+            else if (f.GetType() == typeof(Floor2))
+                floorIndex = 2;
+            else if (f.GetType() == typeof(Floor3))
+                floorIndex = 3;
+            else if (f.GetType() == typeof(Floor4))
+                floorIndex = 4;
+
+
+            spriteBatch.DrawString(Fonts.Normal, "Floor: " + floorIndex, Vector2.Zero, Color.White);
+
+            spriteBatch.End();
+
         }
 
-        public static void changeFloor(Floor newF)
+        public static void changeFloor(Floor newF, Character character)
         {
             f = newF;
+            f.changePlayer(character);
         }
 
         public static void passMessage(string message)
         {
             mBox = new MessageBox();
             mBox.show(message);
+        }
+        public static void passMessage(string title, List<string> options)
+        {
+            mBox = new MessageBox();
+            mBox.show(title, options);
+        }
+        public static void hideMessage()
+        {
+            mBox.hide();
         }
     }
 }

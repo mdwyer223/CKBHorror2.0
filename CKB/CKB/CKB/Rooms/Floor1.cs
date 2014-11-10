@@ -12,21 +12,19 @@ namespace CKB
     public class Floor1 : Floor
     {
         public Floor1()
-            : base(Image.Floor2.Wall, Vector2.Zero)
+            : base(Image.Floor1.Wall, Vector2.Zero)
         {
-            color = Color.White;
+            objs.Add(new Elevator(130));
 
             objs.Add(new Phone(400));
-            objs.Add(new Trash(300));
-            objs.Add(new Door(700, 2));
-            objs.Add(new StairDoor(800, 2));
-            objs.Add(new Elevator(130));
+
+            objs.Add(new StairDoor(1200, 1));
         }
 
         public override void update(GameTime gameTime)
         {
             if (Input.escapePressed())
-                Game1.changeFloor(new Floor2());
+                Game1.changeFloor(new Floor2(), Character);
             base.update(gameTime);
         }
     }

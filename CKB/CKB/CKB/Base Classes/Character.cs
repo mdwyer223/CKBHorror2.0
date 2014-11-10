@@ -13,14 +13,14 @@ namespace CKB
     public class Character : AnimatedSprite
     {
 
+        KeyboardState keys, oldkeys;
+        Animation aniWalk, aniIdle;
+
         public Object Focus
         {
             get;
             private set;
         }
-
-        KeyboardState keys, oldkeys;
-        Animation aniWalk, aniIdle;
 
         public Character()
             : base(Image.Character.Walk, 0.15f, 2.5f, Vector2.Zero)

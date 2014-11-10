@@ -122,6 +122,7 @@
     <Compile Include="Lighting\Lightmap.cs" />
     <Compile Include="Lighting\LightTile.cs" />
     <Compile Include="Menus\MessageBox.cs" />
+    <Compile Include="Menus\MessageOption.cs" />
     <Compile Include="Objects\Door.cs" />
     <Compile Include="Objects\Elevator.cs" />
     <Compile Include="Objects\Light.cs" />
@@ -135,6 +136,8 @@
     <Compile Include="Game1.cs" />
     <Compile Include="Rooms\Floor1.cs" />
     <Compile Include="Rooms\Floor2.cs" />
+    <Compile Include="Rooms\Floor3.cs" />
+    <Compile Include="Rooms\Floor4.cs" />
     <Compile Include="Rooms\Room100.cs" />
     <Compile Include="Rooms\Room200.cs" />
   </ItemGroup>

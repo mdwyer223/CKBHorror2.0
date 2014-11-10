@@ -122,7 +122,7 @@ namespace CKB
 
             public static Texture2D DoorStair
             {
-                get { return Game1.GameContent.Load<Texture2D>("Floor3/stair"); }
+                get {  return Game1.GameContent.Load<Texture2D>("Floor3/stairs"); }
             }
         }
 
@@ -131,7 +131,7 @@ namespace CKB
         {
             public static Texture2D Wall
             {
-                get { return Game1.GameContent.Load<Texture2D>("Floor2/wall"); }
+                get { return Game1.GameContent.Load<Texture2D>("Floor4/wall4"); }
             }
 
             public static Texture2D DoorClose

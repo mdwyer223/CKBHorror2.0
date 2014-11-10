@@ -87,7 +87,7 @@ namespace CKB
 
             // Shorthand condition logic
             Speed = (secondsToCrossScreen > 0) ? (int)(inDisplayWidth / (secondsToCrossScreen * 60)) : 0;
-            Speed = 3;
+            //Speed = 3;
 
             Position = startPos;
         }
