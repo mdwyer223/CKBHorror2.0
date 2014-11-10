@@ -17,10 +17,10 @@ namespace CKB
             objs.Add(new Elevator(130));
 
             objs.Add(new Phone(400));
-            objs.Add(new Trash(300));
+            objs.Add(new Trash(300, "Don't go to the top floor whatever you do."));
             objs.Add(new Door(700, 2));
 
-            objs.Add(new StairDoor(1200, 2));
+            objs.Add(new StairDoor(2000, 2));
             
         }
 

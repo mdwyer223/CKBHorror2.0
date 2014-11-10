@@ -16,9 +16,9 @@ namespace CKB
         {
             objs.Add(new Elevator(130));
 
-            objs.Add(new Trash(300));
+            objs.Add(new Trash(300, "YOu lik dis bUlding here?"));
 
-            objs.Add(new StairDoor(1200, 4));
+            objs.Add(new StairDoor(2000, 4));
         }
 
         public override void update(GameTime gameTime)

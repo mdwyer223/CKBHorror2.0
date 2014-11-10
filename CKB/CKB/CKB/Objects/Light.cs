@@ -58,7 +58,7 @@ namespace CKB
             : base()
         {
             this.FollowingPlayer = true;
-            brightnessFactor = .75f;
+            brightnessFactor = .85f;
         }
 
         public virtual void update()

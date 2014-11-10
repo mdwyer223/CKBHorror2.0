@@ -18,7 +18,9 @@ namespace CKB
 
             objs.Add(new Phone(400));
 
-            objs.Add(new StairDoor(1200, 1));
+            objs.Add(new StairDoor(2000, 1));
+
+            LightComponent.passLights(new List<Light>());
         }
 
         public override void update(GameTime gameTime)

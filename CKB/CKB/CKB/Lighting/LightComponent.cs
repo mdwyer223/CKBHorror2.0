@@ -16,9 +16,9 @@ namespace CKB
 {
     public class LightComponent : Microsoft.Xna.Framework.DrawableGameComponent
     {
-        Lightmap map;
+        static Lightmap map;
         SpriteBatch spriteBatch;
-        List<Light> lights = new List<Light>();
+        static List<Light> lights = new List<Light>();
 
         public LightComponent(Game game)
             : base(game)
@@ -28,11 +28,7 @@ namespace CKB
         public override void Initialize()
         {
             Random rand = new Random();
-            map = new Lightmap(10, 80, 48);//15,54,32
-            //for (int i = 0; i < 8; i++)
-            //{
-            //    lights.Add(new Light(new Vector2(i * 800, 240), .8f));
-            //}
+            map = new Lightmap(12, 67, 40);//15,54,32
             lights.Add(new Light(true));
             base.Initialize();
         }
@@ -92,6 +88,17 @@ namespace CKB
             spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        public static void passLights(List<Light> newLights)
+        {
+            lights.Clear();
+            map = new Lightmap(12, 67, 40);
+            lights.Add(new Light(true));
+            foreach (Light l in newLights)
+            {
+                lights.Add(l);
+            }
         }
     }
 }

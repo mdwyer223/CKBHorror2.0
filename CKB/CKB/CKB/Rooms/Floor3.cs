@@ -16,7 +16,7 @@ namespace CKB
         {
             objs.Add(new Elevator(130));
 
-            objs.Add(new StairDoor(1200, 3));
+            objs.Add(new StairDoor(2000, 3));
         }
 
         public override void update(GameTime gameTime)
