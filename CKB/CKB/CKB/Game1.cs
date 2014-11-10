@@ -98,7 +98,7 @@ namespace CKB
         {
             Input.Update();
 
-            Game1.Camera.Focus = new Vector2(400, 240);
+            Game1.Camera.Focus = f.charater.Position;
             Game1.Camera.MoveSpeed = f.charater.Speed;
 
             f.update(gameTime);

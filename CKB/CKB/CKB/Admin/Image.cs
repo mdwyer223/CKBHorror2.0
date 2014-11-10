@@ -16,6 +16,11 @@ namespace CKB
             get { return Game1.GameContent.Load<Texture2D>("Testing/Particle"); }
         }
 
+        public static Texture2D MessageBox
+        {
+            get { return Game1.GameContent.Load<Texture2D>("MessBox"); }
+        }
+
         public static Texture2D Elevator
         {
             get { return Game1.GameContent.Load<Texture2D>("elevator"); }
@@ -102,7 +107,7 @@ namespace CKB
         {
             public static Texture2D Wall
             {
-                get { return Game1.GameContent.Load<Texture2D>("Floor3/wall"); }
+                get { return Game1.GameContent.Load<Texture2D>("Floor3/wall3"); }
             }
 
             public static Texture2D DoorClose

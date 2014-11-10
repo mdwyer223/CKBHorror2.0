@@ -13,13 +13,19 @@ namespace CKB
     public class Character : AnimatedSprite
     {
 
+        public Object Focus
+        {
+            get;
+            private set;
+        }
+
         KeyboardState keys, oldkeys;
         Animation aniWalk, aniIdle;
 
         public Character()
             : base(Image.Character.Walk, 0.15f, 2.5f, Vector2.Zero)
         {
-            aniWalk = new Animation(Image.Character.Walk, 350, 0.16f);
+            aniWalk = new Animation(Image.Character.Walk, 350, 0.13f);
             aniIdle = new Animation(Image.Character.Idle, 350, 2f);
             playAnimation(aniIdle);
 
@@ -38,17 +44,20 @@ namespace CKB
             velocity = Vector2.Zero;
 
             //Check for X direction movement--adjust sprite if need
-            if (keys.IsKeyDown(Keys.D) || keys.IsKeyDown(Keys.Right))
+            if ((keys.IsKeyDown(Keys.D) || keys.IsKeyDown(Keys.Right)) &&
+                this.Position.X + this.rec.Width < floor.DrawingRec.Width)
             {
                 velocity.X = this.Speed;
                 Flip = false;
             }
-            if (keys.IsKeyDown(Keys.A) || keys.IsKeyDown(Keys.Left))
+            if ((keys.IsKeyDown(Keys.A) || keys.IsKeyDown(Keys.Left)) &&
+                this.Position.X  > floor.DrawingRec.X)
             {
                 velocity.X = -this.Speed;
                 Flip = true;
             }
 
+            //Play proper animation
             if (velocity.X == 0)
                 playAnimation(aniIdle);
             else
@@ -59,6 +68,22 @@ namespace CKB
             //    velocity.Y = this.Speed;
             //if (keys.IsKeyDown(Keys.W) || keys.IsKeyDown(Keys.Up))
             //    velocity.Y = -this.Speed;
+
+
+            //Find closes object
+            Focus = null;
+            float minDis = floor.DrawingRec.Width;
+            int minIndex = -1;
+
+            for (int i = 0; i < floor.Objects.Length; i++)
+                if (measureDis(floor.Objects[i]) < minDis)
+                {
+                    minDis = measureDis(floor.Objects[i]);
+                    minIndex = i;
+                }
+
+            if (minIndex != -1 && minDis < 150) 
+                Focus = floor.Objects[minIndex];
 
             oldkeys = keys;
         }

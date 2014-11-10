@@ -14,7 +14,6 @@ namespace CKB
         public Floor2()
             : base(Image.Floor3.Wall, Vector2.Zero)
         {
-            color = Color.Green;
         }
     }
 }
