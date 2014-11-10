@@ -83,6 +83,8 @@ namespace CKB
                 
                 //Play
                 curAni = ani;
+                time = 0f;
+                aniIndex = 0;
             }
         }
 
