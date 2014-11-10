@@ -70,7 +70,7 @@ namespace CKB
             }
             else
             {
-                this.position = new Vector2(Game1.c.Position.X, Game1.c.Position.Y - 50);
+                this.position = new Vector2(Game1.CurrentFloor.Character.Position.X, Game1.CurrentFloor.Character.Position.Y - 50);
                 this.position = new Vector2(position.X - Game1.Camera.Position.X + Game1.Camera.Origin.X,
                     position.Y);
             }

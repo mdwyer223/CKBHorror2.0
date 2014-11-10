@@ -9,5 +9,4 @@ namespace CKB
     {
         PAUSE, MAINMENU, PLAYING
     }
-
 }

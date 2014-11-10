@@ -11,10 +11,10 @@ namespace CKB
 {
     public class Fonts
     {
-        //public static SpriteFont Normal
-        //{
-        //    get { return Game1.GameContent.Load<SpriteFont>("Normal"); }
-        //}
+        public static SpriteFont Normal
+        {
+            get { return Game1.GameContent.Load<SpriteFont>("Fonts/Normal"); }
+        }
 
         // other Spritefonts...
     }

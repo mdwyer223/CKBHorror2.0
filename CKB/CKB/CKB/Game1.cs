@@ -22,10 +22,8 @@ namespace CKB
         SpriteBatch spriteBatch;
 
         static Floor f;
-<<<<<<< HEAD
-        public static Character c;
-=======
->>>>>>> 19ff9d3df276beaa3c2382f766bc6eaba7744551
+        static MessageBox mBox;
+
         Vector2 testPos = new Vector2(400, 240);
         Lightmap map;
         bool lookingUp = false;
@@ -35,6 +33,11 @@ namespace CKB
         public SpriteBatch SpriteBatch
         {
             get { return spriteBatch; }
+        }
+
+        public static Floor CurrentFloor
+        {
+            get { return f; }
         }
 
         static GameState mainGameState = GameState.PLAYING;
@@ -82,6 +85,7 @@ namespace CKB
             lights = new LightComponent(this);
             Components.Add(lights);
             f = new Floor1();
+            Game1.passMessage("Hey you");
             base.Initialize();
         }
 
@@ -101,15 +105,11 @@ namespace CKB
         {
             Input.Update();
 
-<<<<<<< HEAD
-            Game1.Camera.Focus = c.Position;
-            Game1.Camera.MoveSpeed = c.Speed;
-=======
-            Game1.Camera.Focus = new Vector2(400, 240);
-            Game1.Camera.MoveSpeed = f.charater.Speed;
->>>>>>> 19ff9d3df276beaa3c2382f766bc6eaba7744551
+            Game1.Camera.Focus = f.Character.Position;
+            Game1.Camera.MoveSpeed = f.Character.Speed;
 
             f.update(gameTime);
+            mBox.update(gameTime);
 
             base.Update(gameTime);
         }
@@ -128,6 +128,11 @@ namespace CKB
 
             spriteBatch.End();
 
+            spriteBatch.Begin();
+
+            mBox.draw(spriteBatch);
+
+            spriteBatch.End();
             base.Draw(gameTime);
 
         }
@@ -135,6 +140,12 @@ namespace CKB
         public static void changeFloor(Floor newF)
         {
             f = newF;
+        }
+
+        public static void passMessage(string message)
+        {
+            mBox = new MessageBox();
+            mBox.show(message);
         }
     }
 }
