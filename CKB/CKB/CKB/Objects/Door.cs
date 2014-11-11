@@ -104,6 +104,7 @@ namespace CKB
             {
                 Open = !Open;
                 time = 0;
+                SoundComponent.playEffect(Sound.DoorOpening, .25f);
             }
         }
 

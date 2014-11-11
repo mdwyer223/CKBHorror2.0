@@ -100,5 +100,20 @@ namespace CKB
                 lights.Add(l);
             }
         }
+
+        public static void turnOffLights()
+        {
+            lights.Clear();
+            map = new Lightmap(12, 67, 40);
+            SoundComponent.increaseFrequency();
+        }
+
+        public static void turnLightOn()
+        {
+            lights.Clear();
+            map = new Lightmap(12, 67, 40);
+            lights.Add(new Light(true));
+            SoundComponent.decreaseFrequency();
+        }
     }
 }

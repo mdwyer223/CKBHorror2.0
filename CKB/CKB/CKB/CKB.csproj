@@ -18,7 +18,8 @@
     <XnaOutputType>Game</XnaOutputType>
     <ApplicationIcon>Game.ico</ApplicationIcon>
     <Thumbnail>GameThumbnail.png</Thumbnail>
-    <PublishUrl>publish\</PublishUrl>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>E:\CKBHorrorPublish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -28,10 +29,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -58,6 +59,18 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <PlatformTarget>x86</PlatformTarget>
     <XnaCompressContent>true</XnaCompressContent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>2BFF6B85379F8C7D6CBA9F3878B18D40F4D26985</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>CKB_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
@@ -111,6 +124,7 @@
     <Compile Include="Admin\Font.cs" />
     <Compile Include="Admin\Image.cs" />
     <Compile Include="Admin\Input.cs" />
+    <Compile Include="Admin\Sound.cs" />
     <Compile Include="Admin\Structures.cs" />
     <Compile Include="Base Classes\AnimatedSprite.cs" />
     <Compile Include="Base Classes\Animation\Animation.cs" />
@@ -123,9 +137,11 @@
     <Compile Include="Lighting\LightTile.cs" />
     <Compile Include="Menus\MessageBox.cs" />
     <Compile Include="Menus\MessageOption.cs" />
+    <Compile Include="Objects\BrokenElevator.cs" />
     <Compile Include="Objects\Door.cs" />
     <Compile Include="Objects\Elevator.cs" />
     <Compile Include="Objects\Light.cs" />
+    <Compile Include="Objects\LockedStairDoor.cs" />
     <Compile Include="Objects\Object.cs" />
     <Compile Include="Objects\Phone.cs" />
     <Compile Include="Objects\StairDoor.cs" />
@@ -140,6 +156,7 @@
     <Compile Include="Rooms\Floor4.cs" />
     <Compile Include="Rooms\Room100.cs" />
     <Compile Include="Rooms\Room200.cs" />
+    <Compile Include="Sound\SoundComponent.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
@@ -173,7 +190,9 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="CKB_TemporaryKey.pfx" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
   <!--

@@ -87,6 +87,7 @@ namespace CKB
                         break;
                 }
                 Game1.hideMessage();
+                SoundComponent.playEffect(Sound.DoorOpening);
             }            
 
         }

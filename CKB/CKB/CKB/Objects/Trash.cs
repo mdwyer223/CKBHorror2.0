@@ -32,6 +32,7 @@ namespace CKB
                 if (Input.actionBarPressed() && !Game1.mBox.Visible)
                 {
                     //play sound
+                    SoundComponent.playEffect(Sound.Trash);
                     Game1.passMessage(this.message);
                 }
             }

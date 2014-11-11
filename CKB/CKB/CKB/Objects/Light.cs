@@ -13,8 +13,8 @@ namespace CKB
     {
         Random rand = new Random();
         Vector2 position, startPosition;
-        float brightnessFactor = 1;
-        bool isDead;
+        float brightnessFactor = 1, originalBrightness;
+        bool isDead, flickering;
 
         public Vector2 Position
         {
@@ -61,12 +61,26 @@ namespace CKB
             brightnessFactor = .85f;
         }
 
+        public Light(Vector2 position, bool flickering)
+        {
+            originalBrightness = 1f;
+            this.flickering = true;
+            this.position = position;
+        }
+
         public virtual void update()
         {
             if (!FollowingPlayer)
             {
                 this.position.X = (this.startPosition.X - Game1.Camera.Position.X);
                 this.position.Y = (this.startPosition.Y - Game1.Camera.Position.Y);
+            }
+            else if (flickering)
+            {
+                brightnessFactor = (float)(originalBrightness * (rand.NextDouble()));
+                this.position = new Vector2(Game1.CurrentFloor.Character.Position.X, Game1.CurrentFloor.Character.Position.Y - 50);
+                this.position = new Vector2(position.X - Game1.Camera.Position.X + Game1.Camera.Origin.X,
+                    position.Y);
             }
             else
             {
