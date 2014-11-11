@@ -12,10 +12,14 @@ namespace CKB
 {
     public abstract class Object : AnimatedSprite
     {
+        protected string title;
+        protected List<string> options;
+        protected bool listening;
 
         public Object(Texture2D texture, float scaleFactor, float secondsToCrossScreen, Vector2 startPos)
             : base(texture, scaleFactor, secondsToCrossScreen, startPos)
         {
+            options = new List<string>();
         }
 
         public sealed override void update(GameTime gameTime)
@@ -38,6 +42,26 @@ namespace CKB
         }
 
         protected virtual void hasFocus(Floor floor)
+        {
+            //Show MessageBox when space pressed
+            if (!listening && Input.actionBarPressed())
+            {
+                Game1.passMessage(this.title, this.options);
+                listening = true;
+            }
+
+            //Check if answer is ready
+            if (!Game1.mBox.Visible && listening)
+            {
+                //React
+                respond(floor, Game1.mBox.OptionIndex);
+                
+                Game1.hideMessage();
+                listening = false;
+            }      
+        }
+
+        protected virtual void respond(Floor floor,int resIndex)
         {
         }
     }

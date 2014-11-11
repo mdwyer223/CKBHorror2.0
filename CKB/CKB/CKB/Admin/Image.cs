@@ -26,6 +26,11 @@ namespace CKB
             get { return Game1.GameContent.Load<Texture2D>("elevator"); }
         }
 
+        public static Texture2D ClosedElevator
+        {
+            get { return Game1.GameContent.Load<Texture2D>("closedElevator"); }
+        }
+
         //Character imgs
         public class Character
         {
@@ -136,17 +141,17 @@ namespace CKB
 
             public static Texture2D DoorClose
             {
-                get { return Game1.GameContent.Load<Texture2D>("Floor2/close"); }
+                get { return Game1.GameContent.Load<Texture2D>("Floor4/door4"); }
             }
 
             public static Texture2D DoorOpen
             {
-                get { return Game1.GameContent.Load<Texture2D>("Floor2/open"); }
+                get { return DoorClose; }
             }
 
             public static Texture2D DoorStair
             {
-                get { return Game1.GameContent.Load<Texture2D>("Floor2/stair"); }
+                get { return Game1.GameContent.Load<Texture2D>("Floor4/stair"); }
             }
         }
 

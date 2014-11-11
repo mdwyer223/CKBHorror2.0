@@ -126,6 +126,7 @@
     <Compile Include="Objects\Door.cs" />
     <Compile Include="Objects\Elevator.cs" />
     <Compile Include="Objects\Light.cs" />
+    <Compile Include="Objects\MessObject.cs" />
     <Compile Include="Objects\Object.cs" />
     <Compile Include="Objects\Phone.cs" />
     <Compile Include="Objects\StairDoor.cs" />

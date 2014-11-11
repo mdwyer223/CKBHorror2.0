@@ -17,6 +17,7 @@ namespace CKB
             objs.Add(new Elevator(130));
 
             objs.Add(new Trash(300));
+            objs.Add(new Door(800, 4));
 
             objs.Add(new StairDoor(1200, 4));
         }

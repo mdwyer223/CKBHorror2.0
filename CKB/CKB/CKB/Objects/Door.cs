@@ -20,7 +20,6 @@ namespace CKB
 
         float time;
 
-
         private bool open;
         public bool Open
         {
