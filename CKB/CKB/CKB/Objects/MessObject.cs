@@ -7,23 +7,24 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
 
 namespace CKB
 {
-    public class MessObject : Object
+    public abstract class MessObject : Object
     {
         int messIndex;
         List<string> messages;
 
-        public MessObject(Texture2D texture, float scaleFactor, float secondsToCrossScreen, Vector2 startPos, string mess)
-            : base(texture, scaleFactor, secondsToCrossScreen, startPos)
+        public MessObject(Texture2D texture, float scaleFactor, float secondsToCrossScreen, Vector2 startPos, SoundEffect sound, string mess)
+            : base(texture, scaleFactor, secondsToCrossScreen, startPos, sound)
         {
             messages = new List<string>();
             messages.Add(mess);
         }
 
-        public MessObject(Texture2D texture, float scaleFactor, float secondsToCrossScreen, Vector2 startPos, List<string> mess)
-            : base(texture, scaleFactor, secondsToCrossScreen, startPos)
+        public MessObject(Texture2D texture, float scaleFactor, float secondsToCrossScreen, Vector2 startPos, SoundEffect sound, List<string> mess)
+            : base(texture, scaleFactor, secondsToCrossScreen, startPos, sound)
         {
             messages = new List<string>();
             messages = mess;
@@ -61,7 +62,10 @@ namespace CKB
                 
             }
 
+        }
 
+        protected sealed override void respond(Floor floor, int resIndex)
+        {
         }
 
     }

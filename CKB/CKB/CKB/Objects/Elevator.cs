@@ -14,7 +14,7 @@ namespace CKB
     {
 
         public Elevator(float startPosX)
-            : base(Image.Elevator, .18f, 0, Vector2.Zero)
+            : base(Image.Elevator, .18f, 0, Vector2.Zero, Sound.Elevator)
         {
             this.Position = new Vector2(startPosX, Game1.View.Height - this.rec.Height);
 
@@ -31,21 +31,23 @@ namespace CKB
             switch (resIndex + 1)
             {
                 case 1:
-                    Game1.changeFloor(new Floor1(), floor.Character);
+                    Game1.changeFloor(new Floor1());
                     break;
 
                 case 2:
-                    Game1.changeFloor(new Floor2(), floor.Character);
+                    Game1.changeFloor(new Floor2());
                     break;
 
                 case 3:
-                    Game1.changeFloor(new Floor3(), floor.Character);
+                    Game1.changeFloor(new Floor3());
                     break;
 
                 case 4:
-                    Game1.changeFloor(new Floor4(), floor.Character);
+                    Game1.changeFloor(new Floor4());
                     break;
             }
+            Game1.hideMessage();
+            
         }
     }
 }

@@ -7,19 +7,24 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
 
 namespace CKB
 {
     public abstract class Object : AnimatedSprite
     {
+        protected SoundEffect sound;
+
         protected string title;
         protected List<string> options;
         protected bool listening;
-
-        public Object(Texture2D texture, float scaleFactor, float secondsToCrossScreen, Vector2 startPos)
+        
+        public Object(Texture2D texture, float scaleFactor, float secondsToCrossScreen, Vector2 startPos, SoundEffect sound)
             : base(texture, scaleFactor, secondsToCrossScreen, startPos)
         {
+            title = "";
             options = new List<string>();
+            this.sound = sound;
         }
 
         public sealed override void update(GameTime gameTime)
@@ -35,6 +40,11 @@ namespace CKB
             {
                 this.color = new Color(185, 185, 185);
                 hasFocus(floor);
+
+                //Play sound
+                if (Input.actionBarPressed())
+                    SoundComponent.playEffect(sound);
+
             }
             else
                 this.color = Color.White;
@@ -44,7 +54,7 @@ namespace CKB
         protected virtual void hasFocus(Floor floor)
         {
             //Show MessageBox when space pressed
-            if (!listening && Input.actionBarPressed())
+            if (!listening && Input.actionBarPressed() && title != "")
             {
                 Game1.passMessage(this.title, this.options);
                 listening = true;
@@ -61,7 +71,7 @@ namespace CKB
             }      
         }
 
-        protected virtual void respond(Floor floor,int resIndex)
+        protected virtual void respond(Floor floor, int resIndex)
         {
         }
     }

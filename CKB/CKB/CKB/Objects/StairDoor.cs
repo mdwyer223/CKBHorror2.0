@@ -15,7 +15,7 @@ namespace CKB
         int floorIndex;
 
         public StairDoor(float startPosX, int floorIndex)
-            : base(Image.Floor2.DoorStair, .205f, 0, Vector2.Zero)
+            : base(Image.Floor2.DoorStair, .205f, 0, Vector2.Zero, Sound.DoorOpening)
         {
             //Select texture
             switch (floorIndex)
@@ -42,6 +42,7 @@ namespace CKB
             
             options.Add("Up");
             options.Add("Down");
+            options.Add("Cancel");
             title = "Up or down?";
         }
         
@@ -55,25 +56,26 @@ namespace CKB
                 add = 1;
             else if (response == "Down")
                 add = -1;
+            else if (response == "Cancel")
+                add = 0;
 
             switch (floorIndex + add)
             {
                 case 1:
-                    Game1.changeFloor(new Floor1(), floor.Character);
+                    Game1.changeFloor(new Floor1());
                     break;
-
                 case 2:
-                    Game1.changeFloor(new Floor2(), floor.Character);
+                    Game1.changeFloor(new Floor2());
                     break;
-
                 case 3:
-                    Game1.changeFloor(new Floor3(), floor.Character);
+                    Game1.changeFloor(new Floor3());
                     break;
-
                 case 4:
-                    Game1.changeFloor(new Floor4(), floor.Character);
+                    Game1.changeFloor(new Floor4());
                     break;
-            }
+            }  
+            Game1.hideMessage();
+            
         }
 
     }

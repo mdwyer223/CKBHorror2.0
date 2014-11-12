@@ -15,19 +15,19 @@ namespace CKB
             : base(Image.Floor2.Wall, Vector2.Zero)
         {
             objs.Add(new Elevator(130));
-
-            objs.Add(new Phone(400));
-            objs.Add(new Trash(300));
+            objs.Add(new Trash(400, "Where is everyone...\n\nHello? I'm scared"));
+            objs.Add(new Trash(900, "The doors lock behind you,\nwhy did it go dark..."));
+            objs.Add(new Trash(1800, "Don't go to the top floor whatever you do."));
             objs.Add(new Door(700, 2));
 
-            objs.Add(new StairDoor(1200, 2));
+            objs.Add(new LockedStairDoor(2000, 2));
             
         }
 
         public override void update(GameTime gameTime)
         {
             if (Input.escapePressed())
-                Game1.changeFloor(new Floor3(), Character);
+                Game1.changeFloor(new Floor3());
             base.update(gameTime);
         }
     }

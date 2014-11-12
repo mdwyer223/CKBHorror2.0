@@ -30,6 +30,7 @@ namespace CKB
 
         Vector2 testPos = new Vector2(400, 240);
         Lightmap map;
+        SoundComponent sound;
         bool lookingUp = false;
 
         LightComponent lights;
@@ -88,6 +89,8 @@ namespace CKB
             Components.Add(camera);
             lights = new LightComponent(this);
             Components.Add(lights);
+            sound = new SoundComponent(this);
+            Components.Add(sound);
             f = new Floor1();
 
             mBox = new MessageBox();
@@ -159,10 +162,10 @@ namespace CKB
 
         }
 
-        public static void changeFloor(Floor newF, Character character)
+        public static void changeFloor(Floor newF)
         {
-            f = newF;
-            f.changePlayer(character);
+            newF.changePlayer(f.Character);
+            f = newF;            
         }
 
         public static void passMessage(string message)

@@ -61,13 +61,13 @@ namespace CKB
         {
             Visible = true;
             AcceptsInput = false;
-            this.message = message;
+            this.message = (message == null) ? "" : message;
         }
         public void show(string title, List<string> listView)
         {
             Visible = true;
             AcceptsInput = true;
-            message = title;
+            message = (title == null) ? "" : title;
 
             //init options
             foreach (string str in listView)

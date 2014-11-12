@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
 
 namespace CKB
 {
@@ -15,6 +16,7 @@ namespace CKB
 
         KeyboardState keys, oldkeys;
         Animation aniWalk, aniIdle;
+        SoundEffectInstance walking, breathing, heavyB;
 
         public Object Focus
         {
@@ -31,6 +33,10 @@ namespace CKB
 
             this.Position = new Vector2(0, Game1.View.Height - this.Rec.Height);
             Flip = true;
+            SoundEffect walk = Sound.Walking;
+            walking = walk.CreateInstance();
+            breathing = Sound.NormalBreathing.CreateInstance();
+            heavyB = Sound.HeavyBreathing.CreateInstance();
         }
 
         public void update(GameTime gameTime, Floor floor)
@@ -38,7 +44,21 @@ namespace CKB
             base.update(gameTime);
             keys = Keyboard.GetState();
 
-            
+            if (floor.GetType() == typeof(Floor1) || floor.GetType() == typeof(Floor2))
+            {
+                if (breathing.State == SoundState.Stopped)
+                    breathing.Play();
+                else
+                    breathing.Resume();
+            }
+            else
+            {
+                if (breathing.State == SoundState.Playing)
+                    breathing.Stop();
+                if (heavyB.State == SoundState.Stopped)
+                    heavyB.Play();
+            }
+
             this.Position += this.velocity;
 
             velocity = Vector2.Zero;
@@ -59,9 +79,19 @@ namespace CKB
 
             //Play proper animation
             if (velocity.X == 0)
+            {
                 playAnimation(aniIdle);
+                if (walking.State == SoundState.Playing)
+                    walking.Stop();
+            }
             else
+            {
+                if (walking.State == SoundState.Stopped)
+                    walking.Play();
+                else
+                    walking.Resume();
                 playAnimation(aniWalk);
+            }
 
             //Check for Y direction movement
             //if (keys.IsKeyDown(Keys.S) || keys.IsKeyDown(Keys.Down))

@@ -74,7 +74,7 @@ namespace CKB
         }
 
         public Door(float startPosX, int floorIndex)
-            : base(Image.Floor2.DoorOpen, .33f, 0, Vector2.Zero)
+            : base(Image.Floor2.DoorOpen, .33f, 0, Vector2.Zero, Sound.DoorOpening)
         {
             this.floorIndex = floorIndex;
 
@@ -84,7 +84,7 @@ namespace CKB
         }
 
         public Door(float startPosX, int floorIndex, bool open)
-            : base(Image.Floor2.DoorOpen, .33f, 0, Vector2.Zero)
+            : base(Image.Floor2.DoorOpen, .33f, 0, Vector2.Zero, Sound.DoorOpening)
         {
             this.floorIndex = floorIndex;
 
@@ -103,6 +103,7 @@ namespace CKB
             {
                 Open = !Open;
                 time = 0;
+                SoundComponent.playEffect(Sound.DoorOpening, .25f);
             }
         }
 

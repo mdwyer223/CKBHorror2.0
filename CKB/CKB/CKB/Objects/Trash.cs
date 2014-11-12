@@ -14,19 +14,19 @@ namespace CKB
     {       
 
         public Trash(float startPosX)
-            : base(Image.Object.Trash, .058f, 0, Vector2.Zero, "The trash can is empty")
+            : base(Image.Object.Trash, .058f, 0, Vector2.Zero, Sound.Trash, "The trash can is empty")
         {
             this.Position = new Vector2(startPosX, Game1.View.Height - this.rec.Height);
         }
 
         public Trash(float startPosX, string mess)
-            : base(Image.Object.Trash, .058f, 0, Vector2.Zero, mess)
+            : base(Image.Object.Trash, .058f, 0, Vector2.Zero, Sound.Trash, mess)
         {
             this.Position = new Vector2(startPosX, Game1.View.Height - this.rec.Height);
         }
 
         public Trash(float startPosX, List<string> mess)
-            : base(Image.Object.Trash, .058f, 0, Vector2.Zero, mess)
+            : base(Image.Object.Trash, .058f, 0, Vector2.Zero, Sound.Trash, mess)
         {
             this.Position = new Vector2(startPosX, Game1.View.Height - this.rec.Height);
         }
