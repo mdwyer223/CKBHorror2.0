@@ -33,6 +33,8 @@ namespace CKB
             if (Character.Position.X < 1000 && !turnedOffLights)
             {
                 LightComponent.turnOffLights();
+                Sound.HighPitchScream.Play();
+                Sound.SmallScream.Play();
                 turnedOffLights = true;
             }
         }

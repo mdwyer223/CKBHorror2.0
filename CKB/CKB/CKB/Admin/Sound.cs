@@ -80,5 +80,35 @@ namespace CKB
         {
             get { return Game1.GameContent.Load<SoundEffect>("Sounds/NormalBreathing"); }
         }
+
+        public static SoundEffect Giggle
+        {
+            get { return Game1.GameContent.Load<SoundEffect>("Sounds/Giggle"); }
+        }
+
+        public static SoundEffect SmallGiggle
+        {
+            get { return Game1.GameContent.Load<SoundEffect>("Sounds/SmallGiggle"); }
+        }
+
+        public static SoundEffect LoudWhisper
+        {
+            get { return Game1.GameContent.Load<SoundEffect>("Sounds/LoudWhisper"); }
+        }
+
+        public static SoundEffect Whispers
+        {
+            get { return Game1.GameContent.Load<SoundEffect>("Sounds/Whispers"); }
+        }
+
+        public static SoundEffect HighPitchScream
+        {
+            get { return Game1.GameContent.Load<SoundEffect>("Sounds/HighPitchScream"); }
+        }
+
+        public static SoundEffect SmallScream
+        {
+            get { return Game1.GameContent.Load<SoundEffect>("Sounds/SmallScream"); }
+        }
     }
 }
