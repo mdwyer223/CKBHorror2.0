@@ -16,6 +16,13 @@ namespace CKB
         int messIndex;
         List<string> messages;
 
+        public MessObject(Texture2D texture, float scaleFactor, float secondsToCrossScreen, Vector2 startPos, SoundEffect sound)
+            : base(texture, scaleFactor, secondsToCrossScreen, startPos, sound)
+        {
+            messages = new List<string>();
+            messages.Add("");
+        }
+
         public MessObject(Texture2D texture, float scaleFactor, float secondsToCrossScreen, Vector2 startPos, SoundEffect sound, string mess)
             : base(texture, scaleFactor, secondsToCrossScreen, startPos, sound)
         {

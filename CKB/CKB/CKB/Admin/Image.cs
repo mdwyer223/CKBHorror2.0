@@ -31,6 +31,11 @@ namespace CKB
             get { return Game1.GameContent.Load<Texture2D>("closedElevator"); }
         }
 
+        public static Texture2D Toy
+        {
+            get { return Game1.GameContent.Load<Texture2D>("toy"); }
+        }
+
         //Character imgs
         public class Character
         {
@@ -42,6 +47,39 @@ namespace CKB
             public static Texture2D Idle
             {
                 get { return Game1.GameContent.Load<Texture2D>("Character/cIdle"); }
+            }
+        }
+
+        //Girl imgs
+        public class Girl
+        {
+            public static Texture2D Side
+            {
+                get { return Game1.GameContent.Load<Texture2D>("Girl/sidegirl"); }
+            }
+
+            public static Texture2D Front
+            {
+                get { return Game1.GameContent.Load<Texture2D>("Girl/girl"); }
+            }
+        }
+
+        //Crack imgs
+        public class Crack
+        {
+            public static Texture2D Small
+            {
+                get { return Game1.GameContent.Load<Texture2D>("Objects/smallCrack"); }
+            }
+
+            public static Texture2D Mid
+            {
+                get { return Game1.GameContent.Load<Texture2D>("Objects/mediumCrack"); }
+            }
+
+            public static Texture2D Large
+            {
+                get { return Game1.GameContent.Load<Texture2D>("Objects/largeCrack"); }
             }
         }
 
@@ -57,8 +95,28 @@ namespace CKB
             {
                 get { return Game1.GameContent.Load<Texture2D>("Objects/trash"); }
             }
-        }
 
+            public static Texture2D Bear
+            {
+                get { return Game1.GameContent.Load<Texture2D>("Objects/bearonwall"); }
+            }
+
+            public static Texture2D Bucket
+            {
+                get { return Game1.GameContent.Load<Texture2D>("Objects/bucket"); }
+            }
+
+            public static Texture2D FrontDoor
+            {
+                get { return Game1.GameContent.Load<Texture2D>("Objects/frontdoors"); }
+            }
+
+            public static Texture2D LetsPlay
+            {
+                get { return Game1.GameContent.Load<Texture2D>("Objects/letsplay"); }
+            }
+        }
+        
         //Floor1 imgs ~~ FAKES
         public class Floor1
         {

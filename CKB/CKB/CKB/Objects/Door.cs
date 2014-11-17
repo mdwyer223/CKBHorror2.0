@@ -18,8 +18,6 @@ namespace CKB
 
         private int floorIndex;
 
-        float time;
-
         private bool open;
         public bool Open
         {
@@ -73,17 +71,7 @@ namespace CKB
             }
         }
 
-        public Door(float startPosX, int floorIndex)
-            : base(Image.Floor2.DoorOpen, .33f, 0, Vector2.Zero, Sound.DoorOpening)
-        {
-            this.floorIndex = floorIndex;
-
-            height = this.rec.Height;
-            startPos = startPosX;
-            Open = false;
-        }
-
-        public Door(float startPosX, int floorIndex, bool open)
+        public Door(float startPosX, int floorIndex, bool open = false)
             : base(Image.Floor2.DoorOpen, .33f, 0, Vector2.Zero, Sound.DoorOpening)
         {
             this.floorIndex = floorIndex;
@@ -92,20 +80,5 @@ namespace CKB
             startPos = startPosX;
             Open = open;
         }
-
-        
-        public override void update(GameTime gameTime, Floor floor)
-        {
-            base.update(gameTime, floor);
-
-            time += (float)gameTime.ElapsedGameTime.TotalSeconds;
-            if (time >= 1f)
-            {
-                Open = !Open;
-                time = 0;
-                SoundComponent.playEffect(Sound.DoorOpening, .25f);
-            }
-        }
-
     }
 }

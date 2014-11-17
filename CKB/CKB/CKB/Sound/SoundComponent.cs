@@ -49,7 +49,7 @@ namespace CKB
             if (timer >= timeTillSound)
             {
                 //random sound
-                int num = rand.Next(0, 9);
+                int num = rand.Next(0, 4);
                 switch (num)
                 {
                     case 0:
@@ -61,24 +61,24 @@ namespace CKB
                     case 2:
                         Sound.Laugh1.Play();
                         break;
+                    //case 3:
+                    //    Sound.Shriek1.Play();
+                    //    break;
+                    //case 4:
+                    //    Sound.Shriek2.Play();
+                    //    break;
                     case 3:
-                        Sound.Shriek1.Play();
-                        break;
-                    case 4:
-                        Sound.Shriek2.Play();
-                        break;
-                    case 5:
                         Sound.Shuffling1.Play();
                         break;
-                    case 6:
-                        Sound.Giggle.Play();
-                        break;
-                    case 7:
-                        Sound.SmallGiggle.Play();
-                        break;
-                    case 8:
-                        Sound.LoudWhisper.Play();
-                        break;
+                    //case 6:
+                    //    Sound.Giggle.Play();
+                    //    break;
+                    //case 7:
+                    //    Sound.SmallGiggle.Play();
+                    //    break;
+                    //case 4:
+                    //    Sound.LoudWhisper.Play();
+                    //    break;
                 }
                 timer = 0;
                 timeTillSound = rand.Next(minTime, maxTime);

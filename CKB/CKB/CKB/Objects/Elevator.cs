@@ -43,7 +43,7 @@ namespace CKB
                     break;
 
                 case 4:
-                    Game1.changeFloor(new Floor4());
+                    //Game1.changeFloor(new Floor4());
                     break;
             }
             Game1.hideMessage();

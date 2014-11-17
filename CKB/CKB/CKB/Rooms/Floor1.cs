@@ -15,12 +15,10 @@ namespace CKB
             : base(Image.Floor1.Wall, Vector2.Zero)
         {
             objs.Add(new BrokenElevator(130));
-
             objs.Add(new Phone(600));
-
+            objs.Add(new FrontDoor(1000));
+            objs.Add(new Trash(1700, "foreach (Light l in lights)\n{\nif (l != null)\n{\nl.update();\nif (t.LightPosition.X != -1f)\n{"));
             objs.Add(new StairDoor(2000, 1));
-
-            objs.Add(new Trash(1200, "foreach (Light l in lights)\n{\nif (l != null)\n{\nl.update();\nif (t.LightPosition.X != -1f)\n{"));
 
             List<Light> lights = new List<Light>();
             //lights.Add(new Light(new Vector2(100, 240), true));

@@ -44,6 +44,7 @@ namespace CKB
             base.update(gameTime);
             keys = Keyboard.GetState();
 
+            //Play proper breathing
             if (floor.GetType() == typeof(Floor1) || floor.GetType() == typeof(Floor2))
             {
                 if (breathing.State == SoundState.Stopped)

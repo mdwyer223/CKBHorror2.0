@@ -59,10 +59,11 @@ namespace CKB
         public override void draw(SpriteBatch spriteBatch)
         {
             //If (there's no animation) draw normally
-            if (curAni == null)
-                base.draw(spriteBatch);
-            else
-                spriteBatch.Draw(curAni.Strip, this.rec, curAni.getFrame(aniIndex).Rec, this.color, 0, Vector2.Zero, flip, 0);
+            if (IsVisible)
+                if (curAni == null)
+                    spriteBatch.Draw(texture, this.rec, null, this.color, 0, Vector2.Zero, flip, 0);
+                else
+                    spriteBatch.Draw(curAni.Strip, this.rec, curAni.getFrame(aniIndex).Rec, this.color, 0, Vector2.Zero, flip, 0);
         }
 
         protected void playAnimation(Animation ani)

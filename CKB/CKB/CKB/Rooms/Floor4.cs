@@ -6,22 +6,28 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Audio;
 
 namespace CKB
 {
     public class Floor4 : Floor
     {
         bool turnedOffLights = false;
+        SoundEffectInstance whipser;
+        
+
         public Floor4()
             : base(Image.Floor4.Wall, Vector2.Zero)
         {
             objs.Add(new Elevator(130));
 
-            objs.Add(new Trash(300));
             objs.Add(new Door(800, 4));
-            objs.Add(new Trash(1900, "YOu lik dis bUlding here?"));
+            objs.Add(new Girl(800, false, true));
+            objs.Add(new Trash(1800, "YOu lik dis bUlding here?"));
 
             objs.Add(new StairDoor(2000, 4));
+
+            whipser = Sound.LoudWhisper.CreateInstance();
         }
 
         public override void update(GameTime gameTime)
@@ -30,7 +36,12 @@ namespace CKB
                 Game1.changeFloor(new Floor1());
             base.update(gameTime);
 
-            if (Character.Position.X < 1000 && !turnedOffLights)
+            if (whipser.State == SoundState.Stopped)
+                whipser.Play();
+            else
+                whipser.Resume();
+
+            if (Character.Position.X < 1040 && !turnedOffLights)
             {
                 LightComponent.turnOffLights();
                 Sound.HighPitchScream.Play();

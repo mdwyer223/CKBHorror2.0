@@ -69,6 +69,27 @@ namespace CKB
             private set;
         }
 
+        public BaseSprite(Texture2D texture, float scaleFactor, Vector2 startPos)
+        {
+            this.texture = texture;
+            this.ScaleFactor = scaleFactor;
+            color = Color.White;
+            IsVisible = true;
+
+            int inDisplayWidth = Game1.View.Width;
+
+            if (texture != null)
+            {
+                rec.Width = (int)(inDisplayWidth * scaleFactor + 0.5f);
+                float aspectRatio = (float)texture.Width / texture.Height;
+                rec.Height = (int)(Rec.Width / aspectRatio + 0.5f);
+            }
+
+            Speed =  0;
+
+            Position = startPos;
+        }
+
         public BaseSprite(Texture2D texture, float scaleFactor, float secondsToCrossScreen, Vector2 startPos)
         {
             this.texture = texture;
@@ -87,7 +108,6 @@ namespace CKB
 
             // Shorthand condition logic
             Speed = (secondsToCrossScreen > 0) ? (int)(inDisplayWidth / (secondsToCrossScreen * 60)) : 0;
-            //Speed = 3;
 
             Position = startPos;
         }
