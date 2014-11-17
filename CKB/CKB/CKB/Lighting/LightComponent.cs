@@ -44,43 +44,14 @@ namespace CKB
             spriteBatch = new SpriteBatch(Game1.GameDevice);
         }
 
-        public virtual void Update()
-        {
-            GameTime gameTime = new GameTime();
-            map.update(gameTime, lights);
-        }
-
         public override void Update(GameTime gameTime)
         {
             map.update(gameTime, lights);
             base.Update(gameTime);
         }
 
-        public virtual void Draw()
-        {
-            while (true)
-            {
-                spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied);
-
-                map.draw(spriteBatch);
-
-                spriteBatch.End();
-
-                Thread.Sleep(16);
-            }
-        }
-
         public override void Draw(GameTime gameTime)
         {
-            BlendState Multiply = new BlendState()
-            {
-                AlphaSourceBlend = Blend.DestinationAlpha,
-                AlphaDestinationBlend = Blend.Zero,
-                AlphaBlendFunction = BlendFunction.Add,
-                ColorSourceBlend = Blend.DestinationColor,
-                ColorDestinationBlend = Blend.Zero,
-                ColorBlendFunction = BlendFunction.Add
-            };
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied);
 
             map.draw(spriteBatch);

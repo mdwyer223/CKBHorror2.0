@@ -13,8 +13,7 @@ namespace CKB
     public class Floor4 : Floor
     {
         bool turnedOffLights = false;
-        SoundEffectInstance whipser;
-        
+        SoundEffectInstance whipser;       
 
         public Floor4()
             : base(Image.Floor4.Wall, Vector2.Zero)

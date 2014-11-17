@@ -54,6 +54,7 @@ namespace CKB
             if (lightsOffTimer > timeOff)
             {
                 LightComponent.turnLightOn();
+                lightsOffTimer = 0;
             }
             base.update(gameTime);
         }
