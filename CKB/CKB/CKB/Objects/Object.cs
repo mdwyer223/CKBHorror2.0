@@ -42,7 +42,7 @@ namespace CKB
                 hasFocus(floor);
 
                 //Play sound
-                if (Input.actionBarPressed())
+                if (Input.actionBarPressed() && sound != null)
                     SoundComponent.playEffect(sound);
 
             }

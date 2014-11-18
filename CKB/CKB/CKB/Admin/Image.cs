@@ -36,6 +36,11 @@ namespace CKB
             get { return Game1.GameContent.Load<Texture2D>("toy"); }
         }
 
+        public static Texture2D ToyIdle
+        {
+            get { return Game1.GameContent.Load<Texture2D>("toyIdle"); }
+        }
+
         //Character imgs
         public class Character
         {

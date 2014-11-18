@@ -6,6 +6,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Audio;
 
 namespace CKB
 {
@@ -16,8 +17,11 @@ namespace CKB
         public Floor3()
             : base(Image.Floor3.Wall, Vector2.Zero)
         {
+            List<SoundEffect> sounds = new List<SoundEffect>();
+            sounds.Add(Sound.Whispers);
+
             objs.Add(new BrokenElevator(130));
-            objs.Add(new Phone(300));
+            objs.Add(new Phone(350, sounds));
             objs.Add(new Trash(600, "You should turn around"));
             objs.Add(new Bear(850));
             objs.Add(new Trash(1200, "She is coming after you...\nI am coming after you\nWe are all coming after you"));
@@ -31,6 +35,7 @@ namespace CKB
                 Game1.changeFloor(new Floor4());
             if (Character.Position.X > 700 && Character.Position.X <= 1200 && !lightsOff)
             {
+                Sound.Shriek1.Play();
                 lightsOff = true;
                 LightComponent.turnOffLights();
                 Sound.Giggle.Play();

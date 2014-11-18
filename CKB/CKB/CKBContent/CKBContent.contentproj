@@ -173,12 +173,12 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Sounds\DoorOpening.wav">
+    <Compile Include="Sounds\Objects\DoorOpening.wav">
       <Name>DoorOpening</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
-    <Compile Include="Sounds\ElevatorBell.wav">
+    <Compile Include="Sounds\Objects\ElevatorBell.wav">
       <Name>ElevatorBell</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
@@ -188,29 +188,29 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
-    <Compile Include="Sounds\GarbageSearch.wav">
+    <Compile Include="Sounds\Objects\GarbageSearch.wav">
       <Name>GarbageSearch</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sounds\CreepyRun1.wav">
+    <Compile Include="Sounds\Random\CreepyRun1.wav">
       <Name>CreepyRun1</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
-    <Compile Include="Sounds\Exhale.wav">
+    <Compile Include="Sounds\Random\Exhale.wav">
       <Name>Exhale</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
-    <Compile Include="Sounds\Laugh1.wav">
+    <Compile Include="Sounds\Random\Laugh1.wav">
       <Name>Laugh1</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
-    <Compile Include="Sounds\Scratch.wav">
+    <Compile Include="Sounds\Random\Scratch.wav">
       <Name>Scratch</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
@@ -225,13 +225,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
-    <Compile Include="Sounds\Shuffling1.wav">
+    <Compile Include="Sounds\Random\Shuffling1.wav">
       <Name>Shuffling1</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\ShutupPhone.wav">
-      <Name>ShutupPhone</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
@@ -261,16 +256,6 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
-    <Compile Include="Sounds\LoudLaugh.wav">
-      <Name>LoudLaugh</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\SmallGiggle.wav">
-      <Name>SmallGiggle</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
     <Compile Include="Sounds\SmallScream.wav">
       <Name>SmallScream</Name>
       <Importer>WavImporter</Importer>
@@ -278,7 +263,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sounds\Whispers.wav">
+    <Compile Include="Sounds\Objects\Whispers.wav">
       <Name>Whispers</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
@@ -348,7 +333,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sounds\Dialtone.wav">
+    <Compile Include="Sounds\Objects\Dialtone.wav">
       <Name>Dialtone</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
@@ -359,6 +344,49 @@
       <Name>Giggle</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sounds\Steps\concrete-footstep-1.wav">
+      <Name>concrete-footstep-1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\Steps\concrete-footstep-2.wav">
+      <Name>concrete-footstep-2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\Steps\concrete-footstep-3.wav">
+      <Name>concrete-footstep-3</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\Steps\concrete-footstep-4.wav">
+      <Name>concrete-footstep-4</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sounds\Random\SmallGiggle.wav">
+      <Name>SmallGiggle</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sounds\Random\creepy-sound.wav">
+      <Name>creepy-sound</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="toyIdle.png">
+      <Name>toyIdle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

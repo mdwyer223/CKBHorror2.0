@@ -18,6 +18,9 @@ namespace CKB
         Animation aniWalk, aniIdle;
         SoundEffectInstance walking, breathing, heavyB;
 
+        Random rand;
+        int stepIndex = 0;
+
         public Object Focus
         {
             get;
@@ -33,10 +36,12 @@ namespace CKB
 
             this.Position = new Vector2(0, Game1.View.Height - this.Rec.Height);
             Flip = true;
-            SoundEffect walk = Sound.Walking;
+            SoundEffect walk = Sound.Steps.Step1;
             walking = walk.CreateInstance();
             breathing = Sound.NormalBreathing.CreateInstance();
             heavyB = Sound.HeavyBreathing.CreateInstance();
+
+            rand = new Random();
         }
 
         public void update(GameTime gameTime, Floor floor)
@@ -44,7 +49,7 @@ namespace CKB
             base.update(gameTime);
             keys = Keyboard.GetState();
 
-            //Play proper breathing
+            //Play proper breathing sound
             if (floor.GetType() == typeof(Floor1) || floor.GetType() == typeof(Floor2))
             {
                 if (breathing.State == SoundState.Stopped)
@@ -78,7 +83,7 @@ namespace CKB
                 Flip = true;
             }
 
-            //Play proper animation
+            //Play proper animation/walking Sounds
             if (velocity.X == 0)
             {
                 playAnimation(aniIdle);
@@ -88,19 +93,24 @@ namespace CKB
             else
             {
                 if (walking.State == SoundState.Stopped)
+                {
+                    stepIndex = (stepIndex + 1) % 2;
+                    switch (stepIndex)
+                    {
+                        case 0:
+                            walking = Sound.Steps.Step3.CreateInstance();
+                            break;
+                        case 1:
+                            walking = Sound.Steps.Step4.CreateInstance();
+                            break;
+                    }
                     walking.Play();
+                }
                 else
                     walking.Resume();
                 playAnimation(aniWalk);
             }
-
-            //Check for Y direction movement
-            //if (keys.IsKeyDown(Keys.S) || keys.IsKeyDown(Keys.Down))
-            //    velocity.Y = this.Speed;
-            //if (keys.IsKeyDown(Keys.W) || keys.IsKeyDown(Keys.Up))
-            //    velocity.Y = -this.Speed;
-
-
+            
             //Find closes object
             Focus = null;
             float minDis = floor.DrawingRec.Width;

@@ -24,7 +24,7 @@ namespace CKB
             objs.Add(new Girl(800, false, true));
             objs.Add(new Trash(1800, "YOu lik dis bUlding here?"));
 
-            objs.Add(new StairDoor(2000, 4));
+            objs.Add(new LockedStairDoor(2000, 4));
 
             whipser = Sound.LoudWhisper.CreateInstance();
         }

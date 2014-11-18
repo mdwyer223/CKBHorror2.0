@@ -13,7 +13,7 @@ namespace CKB
     {
         public static SoundEffect Trash
         {
-            get { return Game1.GameContent.Load<SoundEffect>("Sounds/GarbageSearch"); }
+            get { return Game1.GameContent.Load<SoundEffect>("Sounds/Objects/GarbageSearch"); }
         }
 
         public static SoundEffect Walking
@@ -23,32 +23,32 @@ namespace CKB
 
         public static SoundEffect Dialtone
         {
-            get { return Game1.GameContent.Load<SoundEffect>("Sounds/Dialtone"); }
+            get { return Game1.GameContent.Load<SoundEffect>("Sounds/Objects/Dialtone"); }
         }
 
         public static SoundEffect DoorOpening
         {
-            get { return Game1.GameContent.Load<SoundEffect>("Sounds/DoorOpening"); }
+            get { return Game1.GameContent.Load<SoundEffect>("Sounds/Objects/DoorOpening"); }
         }
 
         public static SoundEffect Elevator
         {
-            get { return Game1.GameContent.Load<SoundEffect>("Sounds/ElevatorBell"); }
+            get { return Game1.GameContent.Load<SoundEffect>("Sounds/Objects/ElevatorBell"); }
         }
 
         public static SoundEffect Exhale
         {
-            get { return Game1.GameContent.Load<SoundEffect>("Sounds/Exhale"); }
+            get { return Game1.GameContent.Load<SoundEffect>("Sounds/Random/Exhale"); }
         }
 
         public static SoundEffect Laugh1
         {
-            get { return Game1.GameContent.Load<SoundEffect>("Sounds/Exhale"); }
+            get { return Game1.GameContent.Load<SoundEffect>("Sounds/Random/laugh1"); }
         }
 
         public static SoundEffect Scratch
         {
-            get { return Game1.GameContent.Load<SoundEffect>("Sounds/Scratch"); }
+            get { return Game1.GameContent.Load<SoundEffect>("Sounds/Random/Scratch"); }
         }
 
         public static SoundEffect Shriek1
@@ -63,12 +63,12 @@ namespace CKB
 
         public static SoundEffect Shuffling1
         {
-            get { return Game1.GameContent.Load<SoundEffect>("Sounds/Shuffling1"); }
+            get { return Game1.GameContent.Load<SoundEffect>("Sounds/Random/Shuffling1"); }
         }
 
         public static SoundEffect CreepyRun1
         {
-            get { return Game1.GameContent.Load<SoundEffect>("Sounds/CreepyRun1"); }
+            get { return Game1.GameContent.Load<SoundEffect>("Sounds/Random/CreepyRun1"); }
         }
 
         public static SoundEffect HeavyBreathing
@@ -88,7 +88,7 @@ namespace CKB
 
         public static SoundEffect SmallGiggle
         {
-            get { return Game1.GameContent.Load<SoundEffect>("Sounds/SmallGiggle"); }
+            get { return Game1.GameContent.Load<SoundEffect>("Sounds/Random/SmallGiggle"); }
         }
 
         public static SoundEffect LoudWhisper
@@ -98,7 +98,7 @@ namespace CKB
 
         public static SoundEffect Whispers
         {
-            get { return Game1.GameContent.Load<SoundEffect>("Sounds/Whispers"); }
+            get { return Game1.GameContent.Load<SoundEffect>("Sounds/Objects/Whispers"); }
         }
 
         public static SoundEffect HighPitchScream
@@ -109,6 +109,32 @@ namespace CKB
         public static SoundEffect SmallScream
         {
             get { return Game1.GameContent.Load<SoundEffect>("Sounds/SmallScream"); }
+        }
+
+        public static SoundEffect Creepy
+        {
+            get { return Game1.GameContent.Load<SoundEffect>("Sounds/Random/creepy-sound"); }
+        }
+
+        //Different steps sounds
+        public class Steps
+        {
+            public static SoundEffect Step1
+            {
+                get { return Game1.GameContent.Load<SoundEffect>("Sounds/Steps/concrete-footstep-1"); }
+            }
+            public static SoundEffect Step2
+            {
+                get { return Game1.GameContent.Load<SoundEffect>("Sounds/Steps/concrete-footstep-2"); }
+            }
+            public static SoundEffect Step3
+            {
+                get { return Game1.GameContent.Load<SoundEffect>("Sounds/Steps/concrete-footstep-3"); }
+            }
+            public static SoundEffect Step4
+            {
+                get { return Game1.GameContent.Load<SoundEffect>("Sounds/Steps/concrete-footstep-4"); }
+            }
         }
     }
 }
