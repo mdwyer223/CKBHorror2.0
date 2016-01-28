@@ -18,7 +18,7 @@ namespace CKB
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
-        GraphicsDeviceManager graphics;
+        GraphicsDeviceManager graphics; 
         SpriteBatch spriteBatch;
 
         static Floor f;
